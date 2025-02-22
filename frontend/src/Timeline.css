@@ -1,0 +1,43 @@
+.timeline {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .range {
+    position: absolute;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .range.noise {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-left: solid 1px black;
+    border-right: solid 1px black;
+  }
+  
+  .range.silence {
+    background-color: rgba(128, 128, 128, 0.5);
+  }
+  
+  .current-time-indicator {
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background-color: black;
+  }
+  
+  .range-details {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    color: black;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+  }
