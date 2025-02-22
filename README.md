@@ -25,9 +25,18 @@ poetry add -D [package name]
 Das wird dann automatisch in das `pyproject.toml` geschrieben. 
 Das musst du dann als nächstes committen mit einem Kommentar, welches Package hinzugefügt wurde.
 
-## poetry - pytorch  
+### poetry - pytorch  
 ``` 
 poetry source add --priority explicit pytorch_cpu https://download.pytorch.org/whl/cpu
 
 poetry add --source pytorch_cpu torch==1.13.1+cpu torchaudio==0.13.1+cpu
+```
+
+## Ausführung einzelner tools  
+
+```
+poetry run jupyter notebook 
+
+poetry run python [file-to-run].py
+
 ```
