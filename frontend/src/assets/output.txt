@@ -1,0 +1,290 @@
+[
+    {
+        "start": 0.73,
+        "end": 4.09,
+        "personID": 0,
+        "text": "Und da geht's gerne einmal hier noches weiß, so dann meine Person und Kontrolle."
+    },
+    {
+        "start": 4.17,
+        "end": 5.15,
+        "personID": 0,
+        "text": "Warum jetzt?"
+    },
+    {
+        "start": 5.69,
+        "end": 6.48,
+        "personID": 0,
+        "text": "Ich bin einfach am Freie."
+    },
+    {
+        "start": 6.48,
+        "end": 11.05,
+        "personID": 0,
+        "text": "Weil Sie hier in einem Grimmignettel kriminalitätsbelastet Nord sind und ich krieg einmal in Nords weiß."
+    },
+    {
+        "start": 11.75,
+        "end": 12.95,
+        "personID": 0,
+        "text": "Ich weiß ja, weil ich dabei bin."
+    },
+    {
+        "start": 13.49,
+        "end": 16.17,
+        "personID": 0,
+        "text": "Okay, weiß ich es sich jetzt gerade so unkoperativ verhalten,"
+    },
+    {
+        "start": 16.23,
+        "end": 18.55,
+        "personID": 0,
+        "text": "würde ich einmal eine Bodycam aufnahme starten."
+    },
+    {
+        "start": 19.13,
+        "end": 19.59,
+        "personID": 0,
+        "text": "Wie bieten?"
+    },
+    {
+        "start": 21.39,
+        "end": 23.41,
+        "personID": 0,
+        "text": "So, aus, das muss das jetzt so stehen."
+    },
+    {
+        "start": 23.43,
+        "end": 24.77,
+        "personID": 0,
+        "text": "Hähmst du mal bitte hier an den Nords entpassen?"
+    },
+    {
+        "start": 25.43,
+        "end": 29.63,
+        "personID": 0,
+        "text": "Ja, das ist jetzt dem, wo ich bin, einfach am Seier und jetzt gucken."
+    },
+    {
+        "start": 29.97,
+        "end": 31.31,
+        "personID": 0,
+        "text": "Ja, nehmen wir mal die Hände im Sinne runter."
+    },
+    {
+        "start": 31.69,
+        "end": 31.93,
+        "personID": 0,
+        "text": "Okay?"
+    },
+    {
+        "start": 33.05,
+        "end": 33.97,
+        "personID": 0,
+        "text": "Auf einmal runterfahren."
+    },
+    {
+        "start": 34.27,
+        "end": 35.57,
+        "personID": 0,
+        "text": "Okay, gut."
+    },
+    {
+        "start": 36.27,
+        "end": 37.59,
+        "personID": 0,
+        "text": "So, wo es hier aus weiß?"
+    },
+    {
+        "start": 39.03,
+        "end": 41.15,
+        "personID": 0,
+        "text": "Und da hin, so wie es so nicht, wie es hier ist, noch beim Seer."
+    },
+    {
+        "start": 42.07,
+        "end": 42.97,
+        "personID": 0,
+        "text": "Ist noch beim Seer."
+    },
+    {
+        "start": 42.97,
+        "end": 45.69,
+        "personID": 0,
+        "text": "Okay, wir sind tälleisch, okay, machen wir."
+    },
+    {
+        "start": 45.71,
+        "end": 47.95,
+        "personID": 0,
+        "text": "Das ist doch noch nicht bedolchtest du oder sonst was?"
+    },
+    {
+        "start": 47.99,
+        "end": 49.47,
+        "personID": 0,
+        "text": "Nein, jetzt ist noch beim Seer."
+    },
+    {
+        "start": 49.53,
+        "end": 52.38,
+        "personID": 0,
+        "text": "Okay, dann geht's noch runter, nehmen, hände runter, runterfahren."
+    },
+    {
+        "start": 52.38,
+        "end": 54.25,
+        "personID": 0,
+        "text": "Und jetzt krieg ich ihn aus weiß."
+    },
+    {
+        "start": 54.59,
+        "end": 56.15,
+        "personID": 0,
+        "text": "Der ist bei meiner Mama zu hau."
+    },
+    {
+        "start": 56.39,
+        "end": 56.75,
+        "personID": 0,
+        "text": "Okay."
+    },
+    {
+        "start": 57.01,
+        "end": 58.21,
+        "personID": 0,
+        "text": "Wir werden zusammen zu meiner Mama."
+    },
+    {
+        "start": 58.21,
+        "end": 60.35,
+        "personID": 0,
+        "text": "Dann müssen Sie jetzt einmal durchsuchen,"
+    },
+    {
+        "start": 60.39,
+        "end": 61.84,
+        "personID": 0,
+        "text": "und werden Sie keine Auswäste abbrechen."
+    },
+    {
+        "start": 61.84,
+        "end": 63.95,
+        "personID": 0,
+        "text": "Ich würde aber nicht, dass du mich anfasst, traurig."
+    },
+    {
+        "start": 63.97,
+        "end": 66.0,
+        "personID": 0,
+        "text": "Wir sind immer noch nicht beim Du, wir sind beim Seer."
+    },
+    {
+        "start": 66.0,
+        "end": 70.84,
+        "personID": 0,
+        "text": "Äh, ich würde nicht, dass sie mich anfassen,"
+    },
+    {
+        "start": 71.0,
+        "end": 72.86,
+        "personID": 0,
+        "text": "nichts zu müssen, wie ich vorhanden kann."
+    },
+    {
+        "start": 73.42,
+        "end": 75.84,
+        "personID": 0,
+        "text": "Also, abscheinte ich einen nicht anfassen."
+    },
+    {
+        "start": 76.56,
+        "end": 79.59,
+        "personID": 0,
+        "text": "Also, lass mich jetzt ein bisschen brüchst mich mal an den Kreis."
+    },
+    {
+        "start": 79.59,
+        "end": 80.36,
+        "personID": 0,
+        "text": "Ich weiß ja, einfach richtig."
+    },
+    {
+        "start": 81.46,
+        "end": 82.58,
+        "personID": 0,
+        "text": "Also, du ist jetzt mal bei dir."
+    },
+    {
+        "start": 82.58,
+        "end": 83.21,
+        "personID": 0,
+        "text": "Ich weiß, wo ich mal ..."
+    },
+    {
+        "start": 83.21,
+        "end": 84.16,
+        "personID": 0,
+        "text": "Ich würde das heiern."
+    },
+    {
+        "start": 84.16,
+        "end": 84.66,
+        "personID": 0,
+        "text": "Gut."
+    },
+    {
+        "start": 85.16,
+        "end": 86.57,
+        "personID": 0,
+        "text": "Da suchen wir rum zu reißen."
+    },
+    {
+        "start": 86.57,
+        "end": 87.22,
+        "personID": 0,
+        "text": "Ich würde das."
+    },
+    {
+        "start": 87.6,
+        "end": 90.77,
+        "personID": 0,
+        "text": "Also, lass mich einfach ein Brötchen mit deinem Tuhl"
+    },
+    {
+        "start": 90.77,
+        "end": 91.84,
+        "personID": 0,
+        "text": "so eider noch."
+    },
+    {
+        "start": 92.16,
+        "end": 93.27,
+        "personID": 0,
+        "text": "So, jetzt geht's auf dem Boden."
+    },
+    {
+        "start": 93.27,
+        "end": 94.18,
+        "personID": 0,
+        "text": "Außen Boden."
+    },
+    {
+        "start": 94.56,
+        "end": 95.54,
+        "personID": 0,
+        "text": "Außen Boden."
+    },
+    {
+        "start": 95.88,
+        "end": 96.95,
+        "personID": 0,
+        "text": "Nee, kein Brötchen."
+    },
+    {
+        "start": 97.45,
+        "end": 98.05,
+        "personID": 0,
+        "text": "Nee."
+    }
+]

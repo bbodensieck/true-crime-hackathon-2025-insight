@@ -1,37 +1,56 @@
 import { useState } from 'react';
+import React, { useRef } from 'react';
+import ReactPlayer from 'react-player';
+//import { Player, ControlBar } from 'video-react';
 import reactLogo from './assets/react.svg';
 import Button from '@mui/material/Button';
+
+import Robin from './assets/Robin.mp4'
 
 import viteLogo from '/vite.svg';
 import './App.css';
 
+
 function App() {
-  const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0) /*Zählvariable für den Button*/
+
+  const playerRef = useRef(null);
+  /*const VIDEO = {
+    src: 'assets/PXL_20250222_123802359.mp4',
+    type:'video/mp4'
+   };*/
+  
 
   return (
     <>
+      <h1>Videoanalyse</h1>
+
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      
+      <ReactPlayer
+                className='react-player fixed-bottom'
+                playing={true}
+                url="assets/PXL_20250222_123802359.mp4"
+                height='500px'
+                width='800px'
+                controls={true}
+      />
+
       </div>
-      <h1>Vite + React</h1>
+
+      
+
       <div className="card">
-        <Button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+        <p className="Transcript">
+          Transscript des Videos
+          
         </p>
+        
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Klick auf die Chapters zum abspielen
       </p>
     </>
   )
 }
-
 export default App
