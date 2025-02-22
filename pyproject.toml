@@ -11,8 +11,6 @@ dependencies = [
     "numpy (>=1.21.0,<1.22.0)",
     "moviepy (>=1.0.3,<2.0.0)",
     "pydub (>=0.25.1,<0.26.0)",
-    "torch (==1.13.1+cpu)",
-    "torchaudio (==0.13.1+cpu)",
     "whisper-timestamped (>=1.15.8,<2.0.0)",
     "matplotlib (>=3.3.0,<4.0.0)"
 ]
@@ -20,14 +18,14 @@ dependencies = [
 [tool.poetry]
 package-mode = false
 
+[tool.poetry.dependencies]
+torch = {source = "pytorch_cpu"}
+torchaudio = {source = "pytorch_cpu"}
+
 [[tool.poetry.source]]
 name = "pytorch_cpu"
 url = "https://download.pytorch.org/whl/cpu"
 priority = "explicit"
-
-[tool.poetry.dependencies]
-torch = {source = "pytorch_cpu"}
-torchaudio = {source = "pytorch_cpu"}
 
 [build-system]
 requires = ["poetry-core>=1.0.0,<2.0.0"]
