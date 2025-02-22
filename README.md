@@ -1,7 +1,8 @@
 # true-crime-hackathon-2025-insight
 
 ## Set- up 
-* auf deinem System muss poetry installiert sein. Poetry Version >= 2.0.1  
+* auf deinem System muss poetry installiert sein. Poetry Version >= 2.0.1 
+* außerdem: ffmpeg tested with version 4 (ubuntu), version 7 (macOS)
 * dann das Repository clonen 
 * wechsel in das Repository
 
