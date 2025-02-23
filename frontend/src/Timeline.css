@@ -24,7 +24,7 @@
     background-color: rgba(128, 128, 128, 0.5);
   }
 
-  .marker {
+  .custom-marker {
     position: absolute;
     height: 100%;
     width: 2px;
@@ -32,6 +32,14 @@
     cursor: pointer;
   }
   
+  .ai-marker {
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background-color: orange;
+    cursor: pointer;
+  }
+
   .current-time-indicator {
     position: absolute;
     height: 100%;

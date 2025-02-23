@@ -12,13 +12,14 @@ interface TimelineProps {
   currentTime: number;
   duration: number;
   nonsilentRanges: Range[];
-  markers: Marker[];
+  customMarkers: Marker[];
+  aiMarkers: Marker[];
   onSeek: (time: number) => void;
   onDeleteMarker: (id: number) => void;
   onEditMarker: (marker: Marker) => void;
 }
 
-const Timeline: React.FC<TimelineProps> = ({ currentTime, duration, nonsilentRanges, markers, onSeek, onDeleteMarker, onEditMarker }) => {
+const Timeline: React.FC<TimelineProps> = ({ currentTime, duration, nonsilentRanges, customMarkers, aiMarkers, onSeek, onDeleteMarker, onEditMarker }) => {
   const [selectedRange, setSelectedRange] = useState<Range | null>(null);
   const [editingMarkerId, setEditingMarkerId] = useState<number | null>(null);
   const [editedTitle, setEditedTitle] = useState<string>('');
@@ -30,6 +31,7 @@ const Timeline: React.FC<TimelineProps> = ({ currentTime, duration, nonsilentRan
   };
 
   const getMarkersInRange = (range: { start: number; end: number }) => {
+    const markers = [...customMarkers, ...aiMarkers];
     return markers.filter(marker => marker.time >= range.start && marker.time <= range.end);
   };
 
@@ -64,10 +66,18 @@ const Timeline: React.FC<TimelineProps> = ({ currentTime, duration, nonsilentRan
             onClick={() => handleClick(range)}
           />
         ))}
-        {markers.map((marker, index) => (
+        {customMarkers.map((marker, index) => (
           <div
             key={index}
-            className="marker"
+            className="custom-marker"
+            style={{ left: `${(marker.time / duration) * 100}%` }}
+            onClick={() => onSeek(marker.time)}
+          />
+        ))}
+        {aiMarkers.map((marker, index) => (
+          <div
+            key={index}
+            className="ai-marker"
             style={{ left: `${(marker.time / duration) * 100}%` }}
             onClick={() => onSeek(marker.time)}
           />

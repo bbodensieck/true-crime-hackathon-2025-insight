@@ -3,12 +3,15 @@ import Timeline from './Timeline'; // Adjust the path as necessary
 import ReactPlayer from 'react-player';
 import Marker from './interfaces/marker';
 import Range from './interfaces/range';
+import './VideoPlayer.css'; // Create and import a CSS file for styling
 import { Button } from '@mui/material';
+import { timeStringToSeconds } from './utils';
 
 const VideoPlayer: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [markers, setMarkers] = useState<Marker[]>([]);
+  const [aiMarkers, setAiMarkers] = useState<Marker[]>([]);
+  const [customMarkers, setCustomMarkers] = useState<Marker[]>([]);
   const playerRef = useRef<ReactPlayer>(null);
 
   const [nonsilentRanges, setNonsilentRanges] = useState<Range[]>([]);
@@ -36,9 +39,23 @@ const VideoPlayer: React.FC = () => {
     fetch('http://localhost:3001/api/markers')
       .then(response => response.json())
       .then(data => {
-        setMarkers(data);
+        setCustomMarkers(data);
       })
       .catch(error => console.error('Error fetching markers:', error));
+
+    fetch('/ai_output.json')
+      .then(response => response.json())
+      .then(data => {
+        const chapterMarkers: Marker[] = data.chapters.map((chapter: { time: string; title: string }, index) => ({
+          id: index + 10000,
+          title: chapter.title,
+          time: timeStringToSeconds(chapter.time),
+          eventType: 'ai-marker',
+          videoClipId: 1
+        }));
+        setAiMarkers(chapterMarkers);
+      })
+      .catch(error => console.error('Error fetching AI output:', error));
   }, []);
 
   const handleSeek = (time: number) => {
@@ -64,7 +81,7 @@ const VideoPlayer: React.FC = () => {
 
       if (response.ok) {
         const createdMarker = await response.json();
-        setMarkers([...markers, createdMarker]);
+        setCustomMarkers([...customMarkers, createdMarker]);
       } else {
         console.error('Failed to create marker');
       }
@@ -80,7 +97,7 @@ const VideoPlayer: React.FC = () => {
       });
 
       if (response.ok) {
-        setMarkers(markers.filter(marker => marker.id !== id));
+        setCustomMarkers(customMarkers.filter(marker => marker.id !== id));
       } else {
         console.error('Failed to delete marker');
       }
@@ -99,7 +116,7 @@ const VideoPlayer: React.FC = () => {
     })
       .then(response => {
         if (response.ok) {
-          setMarkers(markers.map(m => (m.id === updatedMarker.id ? updatedMarker : m)));
+          setCustomMarkers(customMarkers.map(m => (m.id === updatedMarker.id ? updatedMarker : m)));
         } else {
           console.error('Failed to update marker');
         }
@@ -108,7 +125,8 @@ const VideoPlayer: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="video-player-container">
+      <div className="video-player">
       <ReactPlayer
         ref={playerRef}
         url="PXL_20250222_123802359.mp4"
@@ -116,12 +134,17 @@ const VideoPlayer: React.FC = () => {
         onDuration={setDuration}
         controls
       />
+      <div>
+        Transscript...
+      </div>
+      </div>
       <Button onClick={handleCreateMarker}>Create Marker</Button>
       <Timeline
         currentTime={currentTime}
         duration={duration}
         nonsilentRanges={nonsilentRanges}
-        markers={markers}
+        customMarkers={customMarkers}
+        aiMarkers={aiMarkers}
         onSeek={handleSeek}
         onDeleteMarker={handleDeleteMarker}
         onEditMarker={handleEditMarker}
