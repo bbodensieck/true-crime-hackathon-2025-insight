@@ -142,6 +142,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ transcript }) => {
           <Button onClick={handleCreateMarker}>Create Marker</Button>
         </div>
         <div className="transcript">
+          <h2>Transkript</h2>
           {transcript.map((entry: { start: number; end: number; text: string }, index: number) => (
             <p key={index}>
             <strong onClick={() => handleSeek(entry.start)} style={{ cursor: 'pointer' }}>

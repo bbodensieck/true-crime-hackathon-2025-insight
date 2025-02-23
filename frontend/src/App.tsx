@@ -1,4 +1,3 @@
-import Button from '@mui/material/Button';
 import './App.css';
 import VideoPlayer from './VideoPlayer';
 import Papa from 'papaparse';
@@ -9,13 +8,14 @@ import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import UploadIcon from '@mui/icons-material/Upload';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import DownloadIcon from '@mui/icons-material/Download';
+import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
 import { timeStringToSeconds } from './utils';
 
 function App() {
   const [ranges, setRanges] = useState<Range[]>([]);
   const [customMarkers, setCustomMarkers] = useState<Marker[]>([]);
   const [aiMarkers, setAiMarkers] = useState<Marker[]>([]);
-  const [conclusion, setConclusion] = useState('');
+  const [conclusion, setConclusion] = useState<string[]>([]);
   const [transcript, setTranscript] = useState([]);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function App() {
           videoClipId: 1
         }));
         setAiMarkers(chapterMarkers);
-        setConclusion(data.conclution);
+        setConclusion(data.conclution.split('-'));
         setTranscript(data.transcript);
       })
       .catch(error => console.error('Error fetching AI output:', error));
@@ -93,9 +93,9 @@ function App() {
       <h1>Videoanalyse</h1>
       <BottomNavigation
         showLabels
-        value={0}
+        value={2}
         onChange={(event, newValue) => {
-          if (newValue === 2) {
+          if (newValue === 3) {
             downloadCSV();
             return;
           }
@@ -104,11 +104,17 @@ function App() {
       >
         <BottomNavigationAction label="Alle videos" icon={<CollectionsIcon />} />
         <BottomNavigationAction label="Upload video" icon={<UploadIcon />} />
+        <BottomNavigationAction label="Analyse" icon={<TroubleshootIcon />} />
         <BottomNavigationAction label="Download CSV" icon={<DownloadIcon />} />
       </BottomNavigation>
       <div className="card">
         <p className="conclusion">
-          {conclusion}
+          <h2>Zusammenfassung</h2>
+          <ul>
+          {conclusion.map((item, index) => (
+            item.length > 0 && <li key={index}>{item}</li>
+          ))}
+          </ul>
         </p>
       </div>
       <div>
