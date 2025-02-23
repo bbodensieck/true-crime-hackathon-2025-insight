@@ -2,9 +2,25 @@
 
 ## Set- up 
 * auf deinem System muss poetry installiert sein. Poetry Version >= 2.0.1 
-* außerdem: ffmpeg tested with version 4 (ubuntu), version 7 (macOS)
+* außerdem: taskfile, ffmpeg tested with version 4 (ubuntu), version 7 (macOS)
 * dann das Repository clonen 
 * wechsel in das Repository
+
+## Taskfile
+Mit dem Taskfile können Backend, Frontend und Prisma Studio gestartet werden.
+
+Installation z.B. via npm
+```console
+npm install -g @go-task/cli
+```
+
+Interaktion mit dem Taskfile
+```console
+task // Liste aller tasks
+task frontend // Startet frontend
+task backend // Startet Backend
+task prisma // Startet Prisma Studio
+```
 
 ## Poetry Environment 
 

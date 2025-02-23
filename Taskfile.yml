@@ -1,0 +1,17 @@
+version: '3'
+
+tasks:
+  backend:
+    cmds:
+      - cd backend && npm start
+    desc: Start the backend server
+
+  frontend:
+    cmds:
+      - cd frontend && npm run dev
+    desc: Start the frontend server
+
+  prisma:
+    cmds:
+      - cd backend && npx prisma studio
+    desc: Open Prisma Studio

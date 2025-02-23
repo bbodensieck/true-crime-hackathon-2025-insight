@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model VideoClip {
+  id       Int      @id @default(autoincrement())
+  title    String
+  url      String
+  duration Float
+  ranges   Range[]
+  markers  Marker[]
+}
+
+model Range {
+  id           Int      @id @default(autoincrement())
+  title        String
+  start        Float
+  end          Float
+  duration     Float
+  maxAmplitude Int
+  eventType    String
+  videoClipId  Int
+  videoClip    VideoClip @relation(fields: [videoClipId], references: [id])
+}
+
+model Marker {
+  id          Int      @id @default(autoincrement())
+  title       String
+  time        Float
+  eventType   String
+  videoClipId Int
+  videoClip   VideoClip @relation(fields: [videoClipId], references: [id])
+}

@@ -23,6 +23,14 @@
   .range.silence {
     background-color: rgba(128, 128, 128, 0.5);
   }
+
+  .marker {
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background-color: red;
+    cursor: pointer;
+  }
   
   .current-time-indicator {
     position: absolute;
@@ -30,6 +38,16 @@
     width: 2px;
     background-color: black;
   }
+
+  .range-details-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    color: black;
+    background-color: #e0e0e0;
+  } 
   
   .range-details {
     display: flex;
@@ -37,7 +55,28 @@
     gap: 10px;
     margin-top: 10px;
     padding: 10px;
-    color: black;
-    background-color: #e0e0e0;
     border-radius: 4px;
+  }
+
+  .marker-item {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #6b6868;
+  }
+
+  .markers-in-range {
+    margin-top: 10px;
+  }
+  
+  .markers-in-range h4 {
+    margin: 0;
+  }
+  
+  .markers-in-range div {
+    margin-top: 5px;
   }
