@@ -25,6 +25,7 @@ function App() {
   const downloadCSV = () => {
     const rangesData = ranges.map(range => ({
       type: 'range',
+      id: range.id,
       start: range.start,
       end: range.end,
       duration: range.duration,
@@ -34,6 +35,7 @@ function App() {
 
     const markersData = markers.map(marker => ({
       type: 'marker',
+      id: marker.id,
       start: marker.time,
       end: marker.time,
       duration: 0,

@@ -21,6 +21,20 @@ app.post('/api/markers', async (req, res) => {
   }
 });
 
+app.put('/api/markers/:id', async (req, res) => {
+  const { id } = req.params;
+  const { title } = req.body;
+  try {
+    const updatedMarker = await prisma.marker.update({
+      where: { id: Number(id) },
+      data: { title },
+    });
+    res.json(updatedMarker);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update marker title' });
+  }
+});
+
 app.delete('/api/markers/:id', async (req, res) => {
   const { id } = req.params;
   try {

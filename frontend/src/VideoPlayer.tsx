@@ -1,14 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Timeline from './Timeline'; // Adjust the path as necessary
 import ReactPlayer from 'react-player';
+import Marker from './interfaces/marker';
+import Range from './interfaces/range';
+import { Button } from '@mui/material';
 
 const VideoPlayer: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [markers, setMarkers] = useState<{ time: number; eventType: string; title: string }[]>([]);
+  const [markers, setMarkers] = useState<Marker[]>([]);
   const playerRef = useRef<ReactPlayer>(null);
 
-  const [nonsilentRanges, setNonsilentRanges] = useState<{ start: number; end: number; event_type: string; max_amplitude: number; duration: number }[]>([]);
+  const [nonsilentRanges, setNonsilentRanges] = useState<Range[]>([]);
 
   useEffect(() => {
     fetch('nonsilent_ranges.json')
@@ -43,7 +46,7 @@ const VideoPlayer: React.FC = () => {
   };
 
   const handleCreateMarker = async () => {
-    const newMarker = {
+    const newMarker: Marker = {
       time: currentTime,
       eventType: 'marker',
       title: `Marker at ${currentTime.toFixed(1)}s`,
@@ -70,6 +73,40 @@ const VideoPlayer: React.FC = () => {
     }
   };
 
+  const handleDeleteMarker = async (id: number) => {
+    try {
+      const response = await fetch(`http://localhost:3001/api/markers/${id}`, {
+        method: 'DELETE'
+      });
+
+      if (response.ok) {
+        setMarkers(markers.filter(marker => marker.id !== id));
+      } else {
+        console.error('Failed to delete marker');
+      }
+    } catch (error) {
+      console.error('Error deleting marker:', error);
+    }
+  };
+
+  const handleEditMarker = (updatedMarker: Marker) => {
+    fetch(`http://localhost:3001/api/markers/${updatedMarker.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedMarker)
+    })
+      .then(response => {
+        if (response.ok) {
+          setMarkers(markers.map(m => (m.id === updatedMarker.id ? updatedMarker : m)));
+        } else {
+          console.error('Failed to update marker');
+        }
+      })
+      .catch(error => console.error('Error updating marker:', error));
+  };
+
   return (
     <div>
       <ReactPlayer
@@ -79,13 +116,15 @@ const VideoPlayer: React.FC = () => {
         onDuration={setDuration}
         controls
       />
-      <button onClick={handleCreateMarker}>Create Marker</button>
+      <Button onClick={handleCreateMarker}>Create Marker</Button>
       <Timeline
         currentTime={currentTime}
         duration={duration}
         nonsilentRanges={nonsilentRanges}
         markers={markers}
         onSeek={handleSeek}
+        onDeleteMarker={handleDeleteMarker}
+        onEditMarker={handleEditMarker}
       />
     </div>
   );
