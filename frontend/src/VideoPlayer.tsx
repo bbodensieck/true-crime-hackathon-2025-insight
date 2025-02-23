@@ -7,7 +7,11 @@ import './VideoPlayer.css'; // Create and import a CSS file for styling
 import { Button } from '@mui/material';
 import { timeStringToSeconds } from './utils';
 
-const VideoPlayer: React.FC = () => {
+interface VideoPlayerProps {
+  transcript: { start: number; end: number; text: string }[];
+}
+
+const VideoPlayer: React.FC<VideoPlayerProps> = ({ transcript }) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [aiMarkers, setAiMarkers] = useState<Marker[]>([]);
@@ -46,7 +50,7 @@ const VideoPlayer: React.FC = () => {
     fetch('/ai_output.json')
       .then(response => response.json())
       .then(data => {
-        const chapterMarkers: Marker[] = data.chapters.map((chapter: { time: string; title: string }, index) => ({
+        const chapterMarkers: Marker[] = data.chapters.map((chapter: { time: string; title: string }, index: number) => ({
           id: index + 10000,
           title: chapter.title,
           time: timeStringToSeconds(chapter.time),
@@ -126,19 +130,27 @@ const VideoPlayer: React.FC = () => {
 
   return (
     <div className="video-player-container">
-      <div className="video-player">
-      <ReactPlayer
-        ref={playerRef}
-        url="PXL_20250222_123802359.mp4"
-        onProgress={({ playedSeconds }) => setCurrentTime(playedSeconds)}
-        onDuration={setDuration}
-        controls
-      />
-      <div>
-        Transscript...
+      <div className="video-transcript-container">
+        <div className="video-player">
+          <ReactPlayer
+            ref={playerRef}
+            url="PXL_20250222_123802359.mp4"
+            onProgress={({ playedSeconds }) => setCurrentTime(playedSeconds)}
+            onDuration={setDuration}
+            controls
+          />
+          <Button onClick={handleCreateMarker}>Create Marker</Button>
+        </div>
+        <div className="transcript">
+          {transcript.map((entry: { start: number; end: number; text: string }, index: number) => (
+            <p key={index}>
+            <strong onClick={() => handleSeek(entry.start)} style={{ cursor: 'pointer' }}>
+              {entry.start.toFixed(2)} - {entry.end.toFixed(2)}:
+            </strong> {entry.text}
+          </p>
+          ))}
+        </div>
       </div>
-      </div>
-      <Button onClick={handleCreateMarker}>Create Marker</Button>
       <Timeline
         currentTime={currentTime}
         duration={duration}

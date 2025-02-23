@@ -16,6 +16,7 @@ function App() {
   const [customMarkers, setCustomMarkers] = useState<Marker[]>([]);
   const [aiMarkers, setAiMarkers] = useState<Marker[]>([]);
   const [conclusion, setConclusion] = useState('');
+  const [transcript, setTranscript] = useState([]);
 
   useEffect(() => {
     fetch('nonsilent_ranges.json')
@@ -39,6 +40,7 @@ function App() {
         }));
         setAiMarkers(chapterMarkers);
         setConclusion(data.conclution);
+        setTranscript(data.transcript);
       })
       .catch(error => console.error('Error fetching AI output:', error));
   }, []);
@@ -110,7 +112,7 @@ function App() {
         </p>
       </div>
       <div>
-        <VideoPlayer />
+        <VideoPlayer transcript={transcript} />
       </div>
     </>
   )

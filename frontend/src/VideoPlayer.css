@@ -1,4 +1,32 @@
+.video-player-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.video-transcript-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
 .video-player {
-  
-  
+    flex: 2;
+    position: relative;
+}
+
+.transcript {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-height: 350px;
+    overflow: scroll;
+}
+
+.transcript h3 {
+    margin-top: 0;
+}
+
+.transcript p {
+    margin: 5px 0;
 }
