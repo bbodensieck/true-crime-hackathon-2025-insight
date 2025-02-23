@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './Timeline.css'; // Create and import a CSS file for styling
+import Marker from './interfaces/marker';
+import Range from './interfaces/range';
 
 interface TimelineProps {
   currentTime: number;
   duration: number;
-  nonsilentRanges: { start: number; end: number; event_type: string; max_amplitude: number; duration: number }[];
-  markers: { time: number; eventType: string; title: string }[];
+  nonsilentRanges: Range[];
+  markers: Marker[];
   onSeek: (time: number) => void;
 }
 
